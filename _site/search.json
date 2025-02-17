@@ -2,15 +2,29 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "bianca-rodas-portfolio",
+    "title": "Bianca Rodas",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2"
+    "text": "California State University, Monterey Bay | Seaside, CA\nB.S in Marine Science and Statistics Minor | Expected Graduation Date: May 2025"
   },
   {
     "objectID": "about.html",
     "href": "about.html",
-    "title": "About",
+    "title": "About Me",
     "section": "",
-    "text": "About this site\n\n1 + 1\n\n[1] 2"
+    "text": "Bianca Rodas is a fourth-year student attending Cal State University, Monterey Bay as a marine science major and a statistics minor."
+  },
+  {
+    "objectID": "index.html#education",
+    "href": "index.html#education",
+    "title": "Bianca Rodas",
+    "section": "",
+    "text": "California State University, Monterey Bay | Seaside, CA\nB.S in Marine Science and Statistics Minor | Expected Graduation Date: May 2025"
+  },
+  {
+    "objectID": "index.html#volunteer-outreach",
+    "href": "index.html#volunteer-outreach",
+    "title": "Bianca Rodas",
+    "section": "Volunteer/ Outreach",
+    "text": "Volunteer/ Outreach\nMonterey Bay Aquarium | Volunteer Educator | September 2024 - December 2024\nThis is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
   }
 ]

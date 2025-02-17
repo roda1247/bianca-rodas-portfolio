@@ -1,11 +1,24 @@
 ---
-title: "bianca-rodas-portfolio"
+title: "Bianca Rodas"
+about:
+  template: jolla
+  image: image_67159041.JPG
+  links: 
+  - icon: github
+    text: Github
+    href: https://github.com/roda1247/bianca-rodas-portfolio
 ---
+
+## Education
+
+California State University, Monterey Bay \| Seaside, CA
+
+B.S in Marine Science and Statistics Minor \| Expected Graduation Date: May 2025
+
+## Volunteer/ Outreach
+
+Monterey Bay Aquarium \| Volunteer Educator \| September 2024 - December 2024
 
 This is a Quarto website.
 
 To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
-
-```{r}
-1 + 1
-```
