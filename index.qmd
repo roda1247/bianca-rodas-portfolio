@@ -3,7 +3,10 @@ title: "Bianca Rodas"
 about:
   template: jolla
   image: image_67159041.JPG
-  links: 
+  links:
+  - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/bianca-rodas-61743335a/
   - icon: github
     text: Github
     href: https://github.com/roda1247/bianca-rodas-portfolio
