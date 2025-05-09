@@ -114,8 +114,9 @@ ggplot(top_companies, aes(x=sum_grand_total,
        x="Total Trash Count")
 ```
 
+**Visualization 3**
 ```{r}
-#| label: viz-2
+#| label: viz-3
 #| fig-cap: "Figure. Boxplot overlayed on a violin plot that shows the log counts of plastic types collected"
 #| fig-alt: "This is an alternative text for the second visualization"
 #| fig-width: 6
