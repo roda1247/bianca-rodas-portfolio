@@ -2,7 +2,24 @@
 title: "Portfolio"
 author: "Bianca Rodas"
 format: html
+execute: 
+  echo: false
+  warning: false
+  message: false
+embed-resources: true
 ---
+
+
+```{r}
+#| label: setup
+#| include: false
+
+library(tidyverse)
+library(dplyr)
+library(viridis)
+library(forcats)
+```
+
 
 ## Data Description
 
@@ -16,62 +33,12 @@ Questions:
 3.Which plastics types were more commonly found? Which is the least?
 
 
-## Data Visualization
-
-What do you want your final visualizations to look like?
-> I want to have a bar graph comparing total counts of branded and unbranded plastics collected.
-> Second visualization will be another bar graph with total counts of plastics for the top 10 brands found.
->Third visual could be a boxplot of different plastic types. 
-
-What do you want to highlight on your final visualizations in order to answer your research questions? How do you plan to do that?
-> I want to emphasize the top contributors to plastic pollution by filtering the top 10.
-
-What is missing from your data or would need to change in your data to create these visualizations?
->I would need to use pivot to change the plastic types from columns to a new variable.I also need to group the companies and summarise the total counts.
-
 
 ## Data Cleaning
 
-Do you need to reformat any variables into different types (e.g. factors, time, dates, strings)? Or remove information from variable values?
-> no
-
-Do you need to deal with any missing data, especially missing data coded other than NA?
-> yes
-
-Do you need to filter your data? How?
-> yes, the top 10 highest counts of plastic collected by company
-
-Do you need to create any new variables? What variables? How?
->no
-
-Do you need to add new data (join) to your data? What data? How?
->no
-
-Are there any variables you can exclude from your data?
->yes
-
-Do you need pivot your data in any way? Why? How?
->yes, because the plastic types are column titles so I will use pivot_longer
-
-Do you need to summarize any of the variables? Which ones? How?
->yes, the top 10 counts of plastics by company
-
-What other aspects of your data need to be “fixed” in order to make your data visualizations?
->I don't think so.
 
 ```{r}
-#| Label: Loading-libraries
-#| echo: FALSE
-
-library(tidyverse)
-library(dplyr)
-library(viridis)
-```
-
-
-```{r}
-#| Label: Read-in-data
-#| echo: FALSE
+#| label: Read-in-data
 
 plastic <- read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2021/2021-01-26/plastics.csv", na = c("NA", "n/a", "unknown", "null", "NULL"))
 
@@ -79,26 +46,38 @@ plastic <- read_csv("https://raw.githubusercontent.com/rfordatascience/tidytuesd
 
 
 ```{r}
-#| Label: Clean-data
-#| echo: FALSE
+#| label: Clean-data
 
 plastic <- plastic |> 
   mutate(brand= if_else(parent_company %in% c("Unbranded") | is.na(parent_company), "Unbranded", "Branded"))
-```
 
-
-```{r}
 top_companies <- plastic |> 
   filter(!parent_company %in% c("Grand Total", "Unbranded") & !is.na(parent_company)) |> 
   group_by(parent_company) |> 
   summarise(sum_grand_total = sum(grand_total)) |> 
   arrange(desc(sum_grand_total)) |> 
   slice_head(n = 10)
+
+plastic <- plastic |>  
+  pivot_longer(cols=c('hdpe', 'ldpe', 'o', 'pet', 'pp', 'ps', 'pvc'),
+                    names_to='type',
+                    values_to='count') |> 
+  mutate(type= fct_reorder(type, count))
 ```
 
-## Visualizations
 
+## Data Visualization
+
+**Visualization 1**
 ```{r}
+#| label: viz-1
+#| fig-cap: "Figure. A bar graph that shows total plastic counts between plastics that was found branded (Purple bar) or unbranded (Yellow bar)."
+#| fig-alt: "This is an alternative text for the first visualization"
+#| fig-width: 6
+#| fig-height: 4
+#| fig-align: center
+
+
 ggplot(plastic, aes(x=brand, y=grand_total, fill=brand))+
   geom_col()+
   theme_bw()+
@@ -113,7 +92,17 @@ ggplot(plastic, aes(x=brand, y=grand_total, fill=brand))+
 ```
 
 
+
+**Visualization 2**
 ```{r}
+#| label: viz-2
+#| fig-cap: "Figure. This is a bar graph that shows the top ten companies associated with the plastic collected in the survey."
+#| fig-alt: "This is an alternative text for the second visualization"
+#| fig-width: 6
+#| fig-height: 4
+#| fig-align: center
+
+
 ggplot(top_companies, aes(x=sum_grand_total, 
                               y=reorder(parent_company, (sum_grand_total))
                               , fill= parent_company))+
@@ -125,6 +114,24 @@ ggplot(top_companies, aes(x=sum_grand_total,
        x="Total Trash Count")
 ```
 
+```{r}
+#| label: viz-2
+#| fig-cap: "Figure. Boxplot overlayed on a violin plot that shows the log counts of plastic types collected"
+#| fig-alt: "This is an alternative text for the second visualization"
+#| fig-width: 6
+#| fig-height: 4
+#| fig-align: center
+
+ggplot(plastic, aes(y=count, x= type, fill=type))+
+  geom_violin(show.legend=F)+
+  geom_boxplot(show.legend=F,alpha=0.2)+
+  theme_bw()+
+  scale_y_log10()+
+  scale_fill_viridis_d(option="plasma")+
+  labs(x="Plastic Type",
+       y="Log (Count)",
+       title="Total Counts of Plastic Types Collected")
+```
 
 
 

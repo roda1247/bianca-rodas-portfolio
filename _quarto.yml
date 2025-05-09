@@ -10,7 +10,7 @@ website:
         text: "Home"
       - href: about.qmd
         text: "About Me"
-      - href: portfolio.qmd
+      - href: portfolio-final.qmd
         text: "Project"
 format:
   html:
