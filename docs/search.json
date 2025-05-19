@@ -4,28 +4,28 @@
     "href": "portfolio-final.html",
     "title": "Portfolio",
     "section": "",
-    "text": "Link: https://github.com/rfordatascience/tidytuesday/blob/main/data/2021/2021-01-26/readme.md\nDescription: The dataset is gathered through organized plastic waste audits and clean-up events on a global scale. This dataset holds record of the date, location, brand name, types of plastic, and quantity.\nQuestions: 1.How does branded plastics compare to unbranded plastics collected?\n2.Which brands were most associated with the plastic found? 3.Which plastics types were more commonly found? Which is the least?"
+    "text": "Link: https://github.com/rfordatascience/tidytuesday/blob/main/data/2021/2021-01-26/readme.md\nDescription: The dataset is gathered through organized plastic waste audits and clean-up events on a global scale. This dataset holds record of the date, location, brand name, types of plastic, and quantity.\nQuestions:\n1.How does branded plastics compare to unbranded plastics collected?\n2.Which brands were most associated with the plastic found? 3.Which plastics types were more commonly found? Which is the least?"
   },
   {
     "objectID": "portfolio-final.html#data-description",
     "href": "portfolio-final.html#data-description",
     "title": "Portfolio",
     "section": "",
-    "text": "Link: https://github.com/rfordatascience/tidytuesday/blob/main/data/2021/2021-01-26/readme.md\nDescription: The dataset is gathered through organized plastic waste audits and clean-up events on a global scale. This dataset holds record of the date, location, brand name, types of plastic, and quantity.\nQuestions: 1.How does branded plastics compare to unbranded plastics collected?\n2.Which brands were most associated with the plastic found? 3.Which plastics types were more commonly found? Which is the least?"
+    "text": "Link: https://github.com/rfordatascience/tidytuesday/blob/main/data/2021/2021-01-26/readme.md\nDescription: The dataset is gathered through organized plastic waste audits and clean-up events on a global scale. This dataset holds record of the date, location, brand name, types of plastic, and quantity.\nQuestions:\n1.How does branded plastics compare to unbranded plastics collected?\n2.Which brands were most associated with the plastic found? 3.Which plastics types were more commonly found? Which is the least?"
   },
   {
     "objectID": "portfolio-final.html#data-cleaning",
     "href": "portfolio-final.html#data-cleaning",
     "title": "Portfolio",
     "section": "Data Cleaning",
-    "text": "Data Cleaning"
+    "text": "Data Cleaning\nI created a binary variable using the “parent company” variable to have values either unbranded or branded per trash count. I also grouped parent companies and summarized the total count to look at the top ten companies linked to the trash collected. I also wanted to pivot some column titles to become values in a new variable called “type”."
   },
   {
     "objectID": "portfolio-final.html#data-visualization",
     "href": "portfolio-final.html#data-visualization",
     "title": "Portfolio",
     "section": "Data Visualization",
-    "text": "Data Visualization\nVisualization 1\n\n\n\n\n\nFigure. A bar graph that shows total plastic counts between plastics that was found branded (Purple bar) or unbranded (Yellow bar).\n\n\n\n\nVisualization 2\n\n\n\n\n\nFigure. This is a bar graph that shows the top ten companies associated with the plastic collected in the survey.\n\n\n\n\nVisualization 3\n\n\n\n\n\nFigure. Boxplot overlayed on a violin plot that shows the log counts of plastic types collected"
+    "text": "Data Visualization\nVisualization 1\nHere is a visual showing plastic counts found with or without an associated brand. On the left we have the branded counts in purple which we can observe a value that exceeds 5,000,000 counts. On the right side, we have unbranded counts in yellow which we can observe over 3,000,000 counts.\n\n\n\n\n\nFigure. Total plastic counts between plastics that was found branded (Purple bar) or unbranded (Yellow bar).\n\n\n\n\nVisualization 2\nHere is a visual showing the top ten companies associated with the highest counts of plastic collected in descending order. The company associated with the highest count is La Doo with 15000 counts. Majority of the companies are food and beverage type companies or some type of personal care.\n\n\n\n\n\nFigure. This is a bar graph that shows the top ten companies associated with the plastic collected in the survey.\n\n\n\n\nVisualization 3\nHere is a visual that displays the counts of plastic types. We can see the plastic type most commonly found was categorized as other. The plastic type found the least was categorized as Polyvinyl Chloride which is a non-recyclable type of plastic.\n\n\n\n\n\nFigure. Boxplot overlayed on a violin plot that shows the log counts of plastic types collected"
   },
   {
     "objectID": "about.html",

@@ -27,14 +27,13 @@ Link: https://github.com/rfordatascience/tidytuesday/blob/main/data/2021/2021-01
 
 Description: The dataset is gathered through organized plastic waste audits and clean-up events on a global scale. This dataset holds record of the date, location, brand name, types of plastic, and quantity.
 
-Questions:
+Questions:  
 1.How does branded plastics compare to unbranded plastics collected?  
 2.Which brands were most associated with the plastic found?
 3.Which plastics types were more commonly found? Which is the least?
 
-
-
 ## Data Cleaning
+I created a binary variable using the "parent company" variable to have values either unbranded or branded per trash count. I also grouped parent companies and summarized the total count to look at the top ten companies linked to the trash collected. I also wanted to pivot some column titles to become values in a new variable called "type". 
 
 
 ```{r}
@@ -61,18 +60,20 @@ top_companies <- plastic |>
 plastic <- plastic |>  
   pivot_longer(cols=c('hdpe', 'ldpe', 'o', 'pet', 'pp', 'ps', 'pvc'),
                     names_to='type',
-                    values_to='count') |> 
-  mutate(type= fct_reorder(type, count))
+                    values_to='count')
 ```
 
 
 ## Data Visualization
 
 **Visualization 1**
+
+Here is a visual showing plastic counts found with or without an associated brand. On the left we have the branded counts in purple which we can observe a value that exceeds 5,000,000 counts. On the right side, we have unbranded counts in yellow which we can observe over 3,000,000 counts.  
+
 ```{r}
 #| label: viz-1
-#| fig-cap: "Figure. A bar graph that shows total plastic counts between plastics that was found branded (Purple bar) or unbranded (Yellow bar)."
-#| fig-alt: "This is an alternative text for the first visualization"
+#| fig-cap: "Figure. Total plastic counts between plastics that was found branded (Purple bar) or unbranded (Yellow bar)."
+#| fig-alt: "A bar graph that shows total plastic counts between plastics that was found branded (Purple bar) or unbranded (Yellow bar). The branded bar had higher plastic count with numbers slightly above 5,000,000 and the unbranded bar is above 3,000,000 counts. "
 #| fig-width: 6
 #| fig-height: 4
 #| fig-align: center
@@ -94,10 +95,13 @@ ggplot(plastic, aes(x=brand, y=grand_total, fill=brand))+
 
 
 **Visualization 2**
+
+Here is a visual showing the top ten companies associated with the highest counts of plastic collected in descending order. The company associated with the highest count is La Doo with 15000 counts. Majority of the companies are food and beverage type companies or some type of personal care. 
+
 ```{r}
 #| label: viz-2
 #| fig-cap: "Figure. This is a bar graph that shows the top ten companies associated with the plastic collected in the survey."
-#| fig-alt: "This is an alternative text for the second visualization"
+#| fig-alt: "This is a bar graph that shows the top ten companies associated with the plastic collected in the survey in descending order. In order from La Doo, Universal Robina Corperation, Colgate Palmotive, Barna, Assorted, Pure Water, Nestle, Mayora Indah, Tami Nadu Co-operative Milk Producers' Federation LTD, and Procter & Gamble."
 #| fig-width: 6
 #| fig-height: 4
 #| fig-align: center
@@ -109,16 +113,22 @@ ggplot(top_companies, aes(x=sum_grand_total,
   geom_col(color="black",size=0.4)+
   theme_bw()+
   scale_fill_viridis_d(option = "plasma", guide = "colourbar")+
-  labs(title="Companies identified during plastic collection",
+  labs(title="Top Companies Identified during Plastic Collection",
        y= "",
-       x="Total Trash Count")
+       x="Total Trash Count")+
+  scale_y_discrete(labels = function(x) stringr::str_wrap(x, width = 25))+
+  theme(axis.text.y = element_text(size = 8), 
+        plot.margin = margin(10, 30, 10, 10))
 ```
 
 **Visualization 3**
+
+Here is a visual that displays the counts of plastic types. We can see the plastic type most commonly found was categorized as other. The plastic type found the least was categorized as Polyvinyl Chloride which is a non-recyclable type of plastic. 
+
 ```{r}
 #| label: viz-3
 #| fig-cap: "Figure. Boxplot overlayed on a violin plot that shows the log counts of plastic types collected"
-#| fig-alt: "This is an alternative text for the second visualization"
+#| fig-alt: "A boxplot over a violin plot that shows the log counts of plastic types. We can see the plastic type most commonly found was categorized as other. The plastic type found the least was categorized as Polyvinyl Chloride."
 #| fig-width: 6
 #| fig-height: 4
 #| fig-align: center
@@ -131,7 +141,7 @@ ggplot(plastic, aes(y=count, x= type, fill=type))+
   scale_fill_viridis_d(option="plasma")+
   labs(x="Plastic Type",
        y="Log (Count)",
-       title="Total Counts of Plastic Types Collected")
+       title="Counts of Plastic Types Collected")
 ```
 
 
