@@ -29,8 +29,8 @@ Description: The dataset is gathered through organized plastic waste audits and 
 
 Questions:  
 1.How does branded plastics compare to unbranded plastics collected?  
-2.Which brands were most associated with the plastic found?
-3.Which plastics types were more commonly found? Which is the least?
+2.Which brands were most associated with the plastic found?  
+3.Which plastics types were more commonly found? Which is the least?  
 
 ## Data Cleaning
 I created a binary variable using the "parent company" variable to have values either unbranded or branded per trash count. I also grouped parent companies and summarized the total count to look at the top ten companies linked to the trash collected. I also wanted to pivot some column titles to become values in a new variable called "type". 
