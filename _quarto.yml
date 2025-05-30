@@ -11,7 +11,7 @@ website:
       - href: about.qmd
         text: "About Me"
       - href: portfolio-final.qmd
-        text: "Project"
+        text: "Demo"
 format:
   html:
     theme: cosmo
