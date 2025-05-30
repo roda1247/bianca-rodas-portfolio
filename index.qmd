@@ -14,13 +14,43 @@ about:
 
 ## Education
 
-California State University, Monterey Bay \| Seaside, CA
+California State University Monterey Bay, Seaside, CA
 
-B.S in Marine Science and Statistics Minor \| Graduation Date: May 2025 \| Cum Laude Honors
+Bachelor of Science in Marine Science, Minor in Statistics
+
+Graduation: May 2025
+
+Honors: Cum Laude (3.5-3.7) \| Educational Opportunity Program (EOP) Scholar
 
 ## Volunteer/ Outreach
 
-Monterey Bay Aquarium \| Volunteer Educator \| September 2024 - December 2024
+**Volunteen**, June-August 2019
+
+The Aquarium of the Pacific, Long Beach, CA
+
+-   Educated guests about the exhibits, the organisms, and the conservation practices for the safety of the ecosystems, with an emphasis on hands-on learning.
+
+-   Facilitated tabling events to engage with guests and assisted at touch tanks to promote safe interactions with live marine organisms.
+
+**Teacher Assistant**, September 2022- December 2022
+
+Marina Vista Elementary School, Marina, CA	
+
+-   Assisted teacher in delivering an interactive lesson on writing and grammar for 2nd-grade students.
+
+-   Organized and led small group activities to improve student comprehension in mathematics and develop problem-solving skills for 3rd-grade students.
+
+-   Fostered a positive and inclusive learning environment for both classrooms by encouraging student participation and growth.
+
+**Volunteer Educator**, October 2024-December 2024
+
+The Monterey Bay Aquarium, Monterey, CA
+
+-   Assisted in the cleaning and setting up of the lab programs, ensuring all materials were ready for student activities.
+
+-   Facilitated educational sessions on STEM programs for deep-sea exploration and engaged students in hands-on learning experiences.
+
+-   Led interactive discussions to encourage curiosity and critical thinking.
 
 This is a Quarto website.
 
